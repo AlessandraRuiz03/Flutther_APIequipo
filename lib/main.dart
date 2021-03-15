@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_appc2/src/pages/Registro.dart';
+import 'package:flutter_appc2/src/login.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -23,9 +25,9 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      //MyHomePage(title: 'Flutter Demo Home Page'),
+     /* home: MyHomePage(title: 'Flutter Demo Home Page'),*/
      home: Center(
-      //child : Registro(),
+      child : Login(),
       ),
     );
   }
