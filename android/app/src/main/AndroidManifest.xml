@@ -2,8 +2,10 @@
     package="com.example.flutter_appc2">
    <application
         android:label="flutter_appc2"
+        android:usesCleartextTraffic="true"
         android:icon="@mipmap/ic_launcher">
         <activity
+            android:usesCleartextTraffic="true"
             android:name=".MainActivity"
             android:launchMode="singleTop"
             android:theme="@style/LaunchTheme"
