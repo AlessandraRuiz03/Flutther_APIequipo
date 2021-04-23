@@ -1,19 +1,16 @@
-import 'dart:convert';
-import 'dart:js';
-
+import 'package:ALESSA/src/pages/registro.dart';
+import 'package:ALESSA/src/providers/providers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_appc2/main.dart';
-import 'package:flutter_appc2/src/pages/registro.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:http/http.dart' as http;
 
 import 'tarjetaPage.dart';
 
 class Login extends StatefulWidget {
   @override
   _Login createState() => _Login();
+  final _username = TextEditingController();
+  final _password = TextEditingController();
 }
 
 Widget buildPassword() {
@@ -99,6 +96,8 @@ Widget buildLoginBtn(BuildContext context) {
     child: RaisedButton(
       elevation: 5,
       onPressed: () {
+        Provider prov = new Provider();
+        prov.login(context, username: "javier", password: "java12345");
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => TarjetaPage()));
       },
@@ -134,34 +133,6 @@ Widget buildSignUpBtn(BuildContext context) {
     },
   );
 }
-
-
-singIN(String email, pass, BuildContext context) async {
-  SharedPreferences sharedPreference = await SharedPreferences.getInstance();
-
-  Map data = {'email': email, 'password': pass};
-
-  // ignore: avoid_init_to_null
-  var jsonResponse = null;
-  
-  var response = await http.post("http://apiliy.ddns.net:3000/api/usuarios", body: data);
-  jsonResponse = json.decode(response.body);
-  if (jsonResponse != null) {
-    setState(() {
-      _isLoading = false;
-    });
-    sharedPreference.setString("token", jsonResponse['token']);
-    Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (BuildContext contex) => Login()),(Route<dynamic> route) => false);
-  } else {
-    setState(() {
-      _isLoading = false;
-    });
-    print(response.body)
-  }
-}
-
-
-
 
 class _Login extends State<Login> {
   bool _isLoading = false;
@@ -211,10 +182,7 @@ class _Login extends State<Login> {
                             buildPassword(),
                             buildLoginBtn(context),
                             buildSignUpBtn(context),
-                          ]
-                          )
-                          )
-                          )
+                          ])))
             ],
           ))),
     );

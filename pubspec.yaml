@@ -1,4 +1,4 @@
-name: flutter_appc2
+name: ALESSA
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -31,6 +31,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   http: ^0.12.0
   shared_preferences: 
+  dio: ^3.0.10
 
 dev_dependencies:
   flutter_test:

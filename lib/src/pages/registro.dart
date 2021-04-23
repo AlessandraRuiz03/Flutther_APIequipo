@@ -1,6 +1,6 @@
+import 'package:ALESSA/src/providers/providers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'login.dart';
 
 class Registro extends StatefulWidget {
@@ -124,9 +124,10 @@ class _RegistroState extends State<Registro> {
             ),
             ElevatedButton(
               onPressed: () {
-              Navigator.push(
-              context, MaterialPageRoute(builder: (context) => Login()));
-
+                Provider prov = new Provider();
+                prov.Register(context, username: usuario, password: password);
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Login()));
               },
               child: Text(
                 'Iniciar sesión',

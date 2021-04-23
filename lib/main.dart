@@ -1,6 +1,6 @@
+import 'package:ALESSA/src/pages/login.dart';
+import 'package:ALESSA/src/pages/registro.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_appc2/src/pages/login.dart';
-
 
 void main() {
   runApp(MyApp());
@@ -13,7 +13,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'TeamAlessa',
       initialRoute: '/',
-      routes: {'/': (BuildContext context) => Login()},
+      routes: {
+        '/': (BuildContext context) => Login(),
+        '/register': (context) => Registro(),
+        //'/dashboard': (context) => Dashboard(),
+        //'/update': (context) => Update(),
+      },
     );
   }
 }
